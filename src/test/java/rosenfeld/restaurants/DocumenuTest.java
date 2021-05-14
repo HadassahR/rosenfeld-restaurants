@@ -14,7 +14,7 @@ public class DocumenuTest {
         DocumenuService service = factory.newInstance();
 
         // when
-        DocumenuFeed feed = service.getByZipCode("07055")
+        DocumenuFeed feed = service.getByZipCode()
                 .blockingGet();
 
         // then
