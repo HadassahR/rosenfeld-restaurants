@@ -14,16 +14,22 @@ public class DocumenuTest {
         DocumenuService service = factory.newInstance();
 
         // when
-        DocumenuFeed feed = service.getByZipCode()
+        DocumenuFeed feed = service.getByZipCode("07055")
                 .blockingGet();
 
         // then
         assertNotNull(feed);
-//        assertNotNull(feed.main);
-//        assertEquals("New York", feed.name);
-//        assertTrue(feed.main.temp > 0);
-//        assertTrue(feed.main.temp < 150); // testing that is in imperial
-//        assertTrue(feed.dt > 0); // checking that date is coming in
+        assertNotNull(feed.data);
+        assertNotNull(feed.data.get(0).address);
+        assertTrue(feed.data.get(0).restaurant_name.length() > 1);
+        assertTrue(feed.data.get(0).address.city.equalsIgnoreCase("Passaic"));
+        assertEquals(feed.data.get(0).address.postal_code, "07055");
+        assertTrue(feed.data.get(0).address.formatted.contains("PASSAIC")
+                && feed.data.get(0).address.formatted.contains("07055"));
+
+//        assertTrue(feed.data.get(0).restaurant_website.startsWith("http"));
+//        assertTrue(Double.parseDouble(feed.data.get(0).restaurant_phone) > 0);
+
     }
 
 

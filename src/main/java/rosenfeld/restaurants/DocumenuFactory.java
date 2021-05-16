@@ -11,7 +11,7 @@ public class DocumenuFactory {
 
     public DocumenuService newInstance() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.documenu.xyz/v2/")
+                .baseUrl("https://api.documenu.com/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
