@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.util.ArrayList?>
+<?import javafx.scene.image.ImageView?>
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml" prefHeight="500" prefWidth="500">
+    <top>
+        <ToolBar minWidth="500">
+            <HBox alignment="TOP_CENTER" spacing="3">
+
+            </HBox>
+        </ToolBar>
+    </top>
+
+    <center>
+
+    </center>
+
+    <bottom>
+
+    </bottom>
+
+</BorderPane>
+
