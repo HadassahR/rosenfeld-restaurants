@@ -10,6 +10,7 @@ public class DocumenuFeed {
         String restaurant_name;
         String restaurant_phone;
         String restaurant_website;
+        List <String> cuisines;
         Address address;
     }
 
