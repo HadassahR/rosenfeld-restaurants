@@ -17,6 +17,7 @@ public class Coordinates {
         try {
             File coordinateFile = new File("zip_lat_long.csv");
             Scanner reader = new Scanner(coordinateFile);
+            reader.useDelimiter(",");
             while (reader.hasNext()) {
                 zipToLatLong.put(
                         reader.next(), //key
@@ -30,9 +31,13 @@ public class Coordinates {
     }
 
     public String getLatLong(String zip){
-        return zipToLatLong.get("07055");
+        String latLong = zipToLatLong.get(zip);
+        return latLong.substring(latLong.indexOf(",") + 1, latLong.length()-1);
     }
 
     public void printCoordinates(){
+        zipToLatLong.entrySet().forEach(entry -> {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        });
     }
 }
