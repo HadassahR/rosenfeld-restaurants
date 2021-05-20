@@ -9,7 +9,7 @@ public class Coordinates {
 
     private final Map<String, String> zipToLatLong = new HashMap<>();
 
-    public Coordinates () {
+    public Coordinates() {
         importCoordinates();
     }
 
@@ -30,12 +30,17 @@ public class Coordinates {
         }
     }
 
-    public String getLatLong(String zip){
-        String latLong = zipToLatLong.get(zip);
-        return latLong.substring(latLong.indexOf(",") + 1, latLong.length()-1);
+    public String getLat(String zip) {
+        String latitude = zipToLatLong.get(zip);
+        return latitude.substring(latitude.indexOf(",") + 1, latitude.indexOf(",", 1));
     }
 
-    public void printCoordinates(){
+    public String getLong(String zip) {
+        String longitude = zipToLatLong.get(zip);
+        return longitude.substring(longitude.indexOf(",", 1) + 1, longitude.length() - 1);
+    }
+
+    public void printCoordinates() {
         zipToLatLong.entrySet().forEach(entry -> {
             System.out.println(entry.getKey() + " " + entry.getValue());
         });

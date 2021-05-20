@@ -13,9 +13,8 @@ public class DocumenuTest {
         DocumenuFactory factory = new DocumenuFactory();
         DocumenuService service = factory.newInstance();
         Coordinates coordinates = new Coordinates();
-        String latLong = coordinates.getLatLong("07055");
-        String latitude = latLong.substring(0, latLong.indexOf(","));
-        String longitude = latLong.substring(latLong.indexOf(",") + 1);
+        String latitude = coordinates.getLat("07055");
+        String longitude = coordinates.getLong("07055");
 
         // when
         DocumenuFeed feed = service.getByZipCode(latitude, longitude, "5", "Italian", "5")
