@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import java.util.ArrayList?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <BorderPane
         xmlns:fx="http://javafx.com/fxml" prefHeight="500" prefWidth="500">
     <top>
         <ToolBar minWidth="500">
             <HBox alignment="TOP_CENTER" spacing="3">
-
+                <Label fx:id="lblEnterZip" text="Enter Zip Code: "/>
+                <TextField fx:id="tfEnterZip"/>
+                <ComboBox fx:id="cbCuisines" promptText="Select Cuisine"/>
+                <Button fx:id="btnGo" text="Find Restaurants" onAction="#findRestaurants"/>
+                <Label fx:id="lblError"/>
             </HBox>
         </ToolBar>
     </top>
