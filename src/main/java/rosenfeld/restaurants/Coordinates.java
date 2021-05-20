@@ -30,6 +30,10 @@ public class Coordinates {
         }
     }
 
+    public boolean checkForZip(String zip){
+        return zipToLatLong.containsKey(zip.trim());
+    }
+
     public String getLat(String zip) {
         String latitude = zipToLatLong.get(zip);
         return latitude.substring(latitude.indexOf(",") + 1, latitude.indexOf(",", 1));
@@ -40,9 +44,4 @@ public class Coordinates {
         return longitude.substring(longitude.indexOf(",", 1) + 1, longitude.length() - 1);
     }
 
-    public void printCoordinates() {
-        zipToLatLong.entrySet().forEach(entry -> {
-            System.out.println(entry.getKey() + " " + entry.getValue());
-        });
-    }
 }
