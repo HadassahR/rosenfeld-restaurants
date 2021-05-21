@@ -16,7 +16,7 @@ public class DocumenuController {
     @FXML
     Button btnGo;
     @FXML
-    ComboBox cbCuisines;
+    ComboBox <String> cbCuisines;
     @FXML
     Label lblError;
 
@@ -29,8 +29,7 @@ public class DocumenuController {
     }
 
     public void initialize() {
-
-
+        cbCuisines.getSelectionModel();
     }
 
     public void findRestaurants() {

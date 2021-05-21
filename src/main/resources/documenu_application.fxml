@@ -3,6 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <BorderPane
         xmlns:fx="http://javafx.com/fxml" prefHeight="500" prefWidth="500">
     <top>
@@ -10,7 +12,17 @@
             <HBox alignment="TOP_CENTER" spacing="3">
                 <Label fx:id="lblEnterZip" text="Enter Zip Code: "/>
                 <TextField fx:id="tfEnterZip"/>
-                <ComboBox fx:id="cbCuisines" promptText="Select Cuisine"/>
+                <ComboBox fx:id="cbCuisines" promptText="Select Cuisine">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value = "Italian"/>
+                            <String fx:value = "Kosher"/>
+                            <String fx:value = "American"/>
+                            <String fx:value = "Sandwiches"/>
+                            <String fx:value = "Ice Cream"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
                 <Button fx:id="btnGo" text="Find Restaurants" onAction="#findRestaurants"/>
                 <Label fx:id="lblError"/>
             </HBox>
