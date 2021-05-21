@@ -18,7 +18,7 @@ public class DocumenuApplication extends Application {
         loader.setController(controller);
 
         Parent parent = loader.load();
-        Scene scene = new Scene(parent, 700, 400);
+        Scene scene = new Scene(parent, 900, 300);
 
         stage.setTitle("Restaurant Finder");
         stage.setScene(scene);

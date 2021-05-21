@@ -5,6 +5,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
+<?import javafx.scene.layout.GridPane?>
+<?import java.util.ArrayList?>
 <BorderPane
         xmlns:fx="http://javafx.com/fxml" prefHeight="500" prefWidth="500">
     <top>
@@ -23,13 +25,72 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
-                <Button fx:id="btnGo" text="Find Restaurants" onAction="#findRestaurants"/>
+                <Button fx:id="btnGo" text="Find Restaurants" onAction="#searchLocation"/>
                 <Label fx:id="lblError"/>
             </HBox>
         </ToolBar>
     </top>
 
     <center>
+        <GridPane alignment="CENTER" hgap="16" vgap="4">
+
+            <Label fx:id="name0" text="Restaurant" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label fx:id="name1" text="Restaurant" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label fx:id="name2" text="Restaurant" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <Label fx:id="name3" text="Restaurant" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            <Label fx:id="name4" text="Restaurant" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+
+            <Label fx:id="phone0" text="123-456-7890" textAlignment="center" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Label fx:id="phone1" text="123-456-7890" textAlignment="center" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label fx:id="phone2" text="123-456-7890" textAlignment="center" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <Label fx:id="phone3" text="123-456-7890" textAlignment="center" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+            <Label fx:id="phone4" text="123-456-7890" textAlignment="center" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+
+            <Label fx:id="website0" text="www.eat.com" textAlignment="center" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Label fx:id="website1" text="www.eat.com" textAlignment="center" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Label fx:id="website2" text="www.eat.com" textAlignment="center" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+            <Label fx:id="website3" text="www.eat.com" textAlignment="center" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+            <Label fx:id="website4" text="www.eat.com" textAlignment="center" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+
+            <Label fx:id="address0" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <Label fx:id="address1" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Label fx:id="address2" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+            <Label fx:id="address3" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+            <Label fx:id="address4" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+
+            <fx:define>
+                <ArrayList fx:id="names">
+                    <fx:reference source="name0"/>
+                    <fx:reference source="name1"/>
+                    <fx:reference source="name2"/>
+                    <fx:reference source="name3"/>
+                    <fx:reference source="name4"/>
+                </ArrayList>
+                <ArrayList fx:id="phones">
+                    <fx:reference source="phone0"/>
+                    <fx:reference source="phone1"/>
+                    <fx:reference source="phone2"/>
+                    <fx:reference source="phone3"/>
+                    <fx:reference source="phone4"/>
+                </ArrayList>
+                <ArrayList fx:id="websites">
+                    <fx:reference source="website0"/>
+                    <fx:reference source="website1"/>
+                    <fx:reference source="website2"/>
+                    <fx:reference source="website3"/>
+                    <fx:reference source="website4"/>
+                </ArrayList>
+                <ArrayList fx:id="addresses">
+                    <fx:reference source="address0"/>
+                    <fx:reference source="address1"/>
+                    <fx:reference source="address2"/>
+                    <fx:reference source="address3"/>
+                    <fx:reference source="address4"/>
+                </ArrayList>
+
+            </fx:define>
+        </GridPane>
+
 
     </center>
 
