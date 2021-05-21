@@ -1,15 +1,28 @@
 plugins {
-    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'application'
 
-sourceCompatibility = 1.8
+// This is the class with the main to run when the application starts.
+mainClassName = 'rosenfeld.restaurants.DocumenuApplication'
 
 repositories {
     mavenCentral()
 }
+
+javafx {
+    modules("javafx.controls", "javafx.fxml")
+}
+
+javafx {
+    version = '12'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
     testImplementation "junit:junit:4.12"
@@ -21,4 +34,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
     implementation "io.reactivex.rxjava3:rxjava:3.0.12"
+
+
 }
