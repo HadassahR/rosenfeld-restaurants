@@ -70,8 +70,19 @@ public class DocumenuController {
         for (int ix = 0; ix < names.size(); ix ++){
             names.get(ix).setText(feed.data.get(ix).restaurant_name);
             phones.get(ix).setText(feed.data.get(ix).restaurant_phone);
-            websites.get(ix).setText(feed.data.get(ix).restaurant_website);
-            addresses.get(ix).setText(feed.data.get(ix).address.formatted);
+            if (feed.data.get(ix).restaurant_website.equals("")){
+                websites.get(ix).setText("No website listed");
+            } else {
+                websites.get(ix).setText(feed.data.get(ix).getWebsite());
+            }
+
+            if (feed.data.get(ix).address.formatted.equals("")){
+                addresses.get(ix).setText("No address listed");
+            } else {
+                addresses.get(ix).setText(feed.data.get(ix).address.shortAddress());
+            }
+//            websites.get(ix).setText(feed.data.get(ix).restaurant_website);
+//            addresses.get(ix).setText(feed.data.get(ix).address.formatted);
         }
 //        names.get(0).setText(feed.data.get(0).restaurant_name);
 //        phones.get(0).setText(feed.data.get(0).restaurant_phone);
