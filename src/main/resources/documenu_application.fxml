@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import java.util.ArrayList?>
 <BorderPane
+        stylesheets="@restaurants.css"
         xmlns:fx="http://javafx.com/fxml" prefHeight="500" prefWidth="500">
     <top>
         <ToolBar minWidth="500">
@@ -18,7 +19,7 @@
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value = "Italian"/>
-                            <String fx:value = "Kosher"/>
+                            <String fx:value = "Chinese"/>
                             <String fx:value = "American"/>
                             <String fx:value = "Sandwiches"/>
                             <String fx:value = "Ice Cream"/>

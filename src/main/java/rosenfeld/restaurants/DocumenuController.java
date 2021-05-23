@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
@@ -16,23 +15,20 @@ public class DocumenuController {
 
 
     @FXML
-    Label lblEnterZip;
+    Label lblEnterZip, lblError;
     @FXML
     TextField tfEnterZip;
     @FXML
     Button btnGo;
     @FXML
     ComboBox<String> cbCuisines;
-    @FXML
-    Label lblError;
-    //    @FXML
-//    Label name, phone, website, cuisines, address;
+
     @FXML
     ArrayList<Label> names, phones, websites, addresses;
 
 
     private final DocumenuService service;
-    private final Coordinates coordinates = new Coordinates();
+    public final Coordinates coordinates = new Coordinates();
 
     public DocumenuController(DocumenuService service) {
         this.service = service;
@@ -50,7 +46,7 @@ public class DocumenuController {
         }
     }
 
-    private void getRestaurants() {
+    public void getRestaurants() {
         Disposable disposableFeed = service.getByZipCode(coordinates.getLat(tfEnterZip.getText()), coordinates.getLong(tfEnterZip.getText()),
                 "5", cbCuisines.getValue(), "5")
                 // request the data in the background
@@ -68,8 +64,10 @@ public class DocumenuController {
     public void onDocumenuFeedRunLater(DocumenuFeed feed) {
 
         for (int ix = 0; ix < names.size(); ix ++){
+
             names.get(ix).setText(feed.data.get(ix).restaurant_name);
             phones.get(ix).setText(feed.data.get(ix).restaurant_phone);
+
             if (feed.data.get(ix).restaurant_website.equals("")){
                 websites.get(ix).setText("No website listed");
             } else {
@@ -81,13 +79,7 @@ public class DocumenuController {
             } else {
                 addresses.get(ix).setText(feed.data.get(ix).address.shortAddress());
             }
-//            websites.get(ix).setText(feed.data.get(ix).restaurant_website);
-//            addresses.get(ix).setText(feed.data.get(ix).address.formatted);
         }
-//        names.get(0).setText(feed.data.get(0).restaurant_name);
-//        phones.get(0).setText(feed.data.get(0).restaurant_phone);
-//        websites.get(0).setText(feed.data.get(0).restaurant_website);
-//        addresses.get(0).setText(feed.data.get(0).address.formatted);
 
     }
 
