@@ -35,7 +35,7 @@ public class DocumenuController {
     }
 
     public void initialize() {
-        cbCuisines.getSelectionModel();
+        cbCuisines.getSelectionModel().select(0);
     }
 
     public void searchLocation() {
