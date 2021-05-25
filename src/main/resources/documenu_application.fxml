@@ -54,15 +54,15 @@
                    GridPane.rowIndex="1"/>
 
             <TextField fx:id="website0" GridPane.columnIndex="0"
-                       GridPane.rowIndex="2"/>
+                       GridPane.rowIndex="2" editable="false"/>
             <TextField fx:id="website1" GridPane.columnIndex="1"
-                       GridPane.rowIndex="2"/>
+                       GridPane.rowIndex="2" editable="false"/>
             <TextField fx:id="website2" GridPane.columnIndex="2"
-                       GridPane.rowIndex="2"/>
+                       GridPane.rowIndex="2" editable="false"/>
             <TextField fx:id="website3" GridPane.columnIndex="3"
-                       GridPane.rowIndex="2"/>
+                       GridPane.rowIndex="2" editable="false"/>
             <TextField fx:id="website4" GridPane.columnIndex="4"
-                       GridPane.rowIndex="2"/>
+                       GridPane.rowIndex="2" editable="false"/>
 
             <Label fx:id="address0" textAlignment="center" GridPane.columnIndex="0"
                    GridPane.rowIndex="3"/>

@@ -46,19 +46,12 @@ public class DocumenuControllerTest {
         givenDocumenuController();
         SingleSelectionModel<String> selectionModel = mock(SingleSelectionModel.class);
         doReturn(selectionModel).when(controller.cbCuisines).getSelectionModel();
-//        for (int ix = 0; ix < controller.websites.size(); ix ++){
-//            doReturn(controller.websites.get(ix)).when(controller.websites).get(ix);
-//        }
 
         // when
         controller.initialize();
 
         // then
         verify(controller.cbCuisines).getSelectionModel();
-//        for (int ix = 0; ix < controller.websites.size(); ix ++){
-//            verify(controller.websites.get(ix)).setEditable(false);
-//        }
-
 
     }
 

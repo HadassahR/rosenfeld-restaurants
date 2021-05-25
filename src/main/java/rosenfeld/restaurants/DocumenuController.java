@@ -37,9 +37,7 @@ public class DocumenuController {
 
     public void initialize() {
         cbCuisines.getSelectionModel().select(0);
-        for (TextField tf : websites){
-            tf.setEditable(false);
-        }
+
     }
 
     public void searchLocation() {
