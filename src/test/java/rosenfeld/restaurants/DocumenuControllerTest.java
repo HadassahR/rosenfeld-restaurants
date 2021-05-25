@@ -12,7 +12,6 @@ import static org.mockito.Mockito.*;
 public class DocumenuControllerTest {
     private DocumenuController controller;
     DocumenuService service;
-    Coordinates coordinates;
 
     @BeforeClass
     public static void beforeClass() {
@@ -59,34 +58,36 @@ public class DocumenuControllerTest {
     public void invalid_searchLocation() {
         // given
         givenDocumenuController();
-        coordinates = mock(Coordinates.class);
-        DocumenuController dController = mock(DocumenuController.class);
+        Coordinates coordinates = mock(Coordinates.class);
 
-        doReturn("07055").when(controller.tfEnterZip).getText();
-        doReturn(false).when(coordinates.checkForZip(controller.tfEnterZip.getText()));
+        doReturn("11111").when(controller.tfEnterZip).getText();
+        String zip = controller.tfEnterZip.getText();
+        doReturn(false).when(coordinates).checkForZip(zip);
 
         // when
         controller.searchLocation();
 
         // then
         verify(controller.lblError).setText("Invalid ZipCode");
-        verify(dController, times(0)).getRestaurants();
-    } // work on
 
+    } // done
 
     @Test
     public void valid_searchLocation() {
         // given
         givenDocumenuController();
         Coordinates coordinates = mock(Coordinates.class);
+
         doReturn("07055").when(controller.tfEnterZip).getText();
-        doReturn(true).when(coordinates.checkForZip(controller.tfEnterZip.toString()));
+        String zip = controller.tfEnterZip.getText();
+        doReturn(true).when(coordinates).checkForZip(zip);
 
         // when
         controller.searchLocation();
 
         // then
-//        verify(controller.getRestaurants());
+        verify(controller.lblError).setText("Invalid ZipCode");
+//        verify(dc, times(1)).getRestaurants();
     } // work on
 
     @Test
