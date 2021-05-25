@@ -37,6 +37,9 @@ public class DocumenuControllerTest {
         controller.addresses = mock(ArrayList.class);
     }
 
+    /*
+    Tests that ComboBox was initialized
+ */
     @Test
     public void initialize() {
         //given
@@ -51,9 +54,12 @@ public class DocumenuControllerTest {
         // then
         verify(controller.cbCuisines.getSelectionModel());
 
-    } // done
+    }
 
 
+    /*
+    Tests that error label shows up and service isn't called when search location is invalid
+*/
     @Test
     public void invalid_searchLocation() {
         // given
@@ -71,9 +77,11 @@ public class DocumenuControllerTest {
         verify(service, times(0)).getByZipCode(coordinates.getLat(zip), coordinates.getLong(zip),
                 "5", "Italian", "5");
 
-    } // done
+    }
 
-
+    /*
+    Tests that when service.getRestaurants() is called, getByZipCode() is called
+ */
     @Test
     public void getRestaurants() {
         // given
@@ -89,8 +97,11 @@ public class DocumenuControllerTest {
         // then
         verify(service).getByZipCode("40.857384", "-74.12899",
                 "5", "Italian", "5");
-    } // done
+    }
 
+    /*
+    Tests that restaurant labels are set onDocumenuFeed(). Incomplete method, wasn't able to finish, doesn't work.
+*/
     @Test
     public void labelsText_onDocumenuFeed() {
         // given
@@ -98,22 +109,31 @@ public class DocumenuControllerTest {
         DocumenuFeed feed = mock(DocumenuFeed.class);
         DocumenuFeed.Data data = mock(DocumenuFeed.Data.class);
 
+        String restaurantName = "Romeo's Pizzeria Restaurant";
+        String restaurantPhone = "(973) 777-1450";
+        String restaurantWebsite = "http://romeosnj.com/";
+        String restaurantAddressForm = "199 Main Ave";
+
+//        doReturn(data).when(controller.names).get(1).getText();
         doReturn("07055").when(controller.tfEnterZip).getText();
         doReturn("Italian").when(controller.cbCuisines).getValue();
-        doReturn(data).when(controller.names).get(1).getText();
+        doReturn(restaurantName).when(controller.names).get(1);
+        doReturn(restaurantPhone).when(controller.phones).get(1);
+        doReturn(restaurantWebsite).when(controller.websites).get(1);
+        doReturn(restaurantAddressForm).when(controller.addresses).get(1);
 
-        feed.data.get(1).restaurant_name = "Romeo's Pizzeria Restaurant";
 
         // when
         controller.onDocumenuFeed(feed);
 
         // then
-        verify(controller.names.get(1)).setText("Romeo's Pizzeria Restaurant");
+        verify(controller.names.get(1), times(1)).setText("Romeo's Pizzeria Restaurant");
+        verify(controller.phones.get(1), times(1)).setText("(973) 777-1450");
+        verify(controller.websites.get(1), times(1)).setText("http://romeosnj.com/");
+        verify(controller.addresses.get(1), times(1)).setText("199 Main Ave");
 
 
-
-
-    } // work on
+    }
 }
 
 
