@@ -23,7 +23,9 @@ public class DocumenuController {
     @FXML
     ComboBox<String> cbCuisines;
     @FXML
-    ArrayList<Label> names, phones, websites, addresses;
+    ArrayList<Label> names, phones, addresses;
+    @FXML
+    ArrayList<TextField> websites;
 
 
     private final DocumenuService service;
@@ -35,6 +37,9 @@ public class DocumenuController {
 
     public void initialize() {
         cbCuisines.getSelectionModel().select(0);
+        for (TextField tf : websites){
+            tf.setEditable(false);
+        }
     }
 
     public void searchLocation() {
@@ -64,19 +69,20 @@ public class DocumenuController {
 
         for (int ix = 0; ix < names.size(); ix ++){
 
-            names.get(ix).setText(feed.data.get(ix).restaurant_name);
-            phones.get(ix).setText(feed.data.get(ix).restaurant_phone);
+            DocumenuFeed.Data data = feed.data.get(ix);
+            names.get(ix).setText(data.restaurant_name);
+            phones.get(ix).setText(data.restaurant_phone);
 
-            if (feed.data.get(ix).restaurant_website.equals("")){
+            if (data.restaurant_website.equals("")){
                 websites.get(ix).setText("No website listed");
             } else {
-                websites.get(ix).setText(feed.data.get(ix).getWebsite());
+                websites.get(ix).setText(data.getWebsite());
             }
 
-            if (feed.data.get(ix).address.formatted.equals("")){
+            if (data.address.formatted.equals("")){
                 addresses.get(ix).setText("No address listed");
             } else {
-                addresses.get(ix).setText(feed.data.get(ix).address.shortAddress());
+                addresses.get(ix).setText(data.address.shortAddress());
             }
         }
 

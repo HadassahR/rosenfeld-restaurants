@@ -15,7 +15,7 @@ public class Coordinates {
 
     private void importCoordinates() {
         try {
-            File coordinateFile = new File("zip_lat_long.csv");
+            File coordinateFile = new File("src/main/resources/zip_lat_long.csv");
             Scanner reader = new Scanner(coordinateFile);
             reader.useDelimiter(",");
             while (reader.hasNext()) {
