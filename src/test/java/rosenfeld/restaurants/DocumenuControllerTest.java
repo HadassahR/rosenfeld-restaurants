@@ -12,6 +12,7 @@ import static org.mockito.Mockito.*;
 public class DocumenuControllerTest {
     private DocumenuController controller;
     DocumenuService service;
+    Coordinates coordinates;
 
     @BeforeClass
     public static void beforeClass() {
@@ -21,11 +22,12 @@ public class DocumenuControllerTest {
 
     private void givenDocumenuController() {
         DocumenuFactory factory = new DocumenuFactory();
+        DocumenuFeed feed = mock(DocumenuFeed.class);
         DocumenuService svc = factory.newInstance();
-        Coordinates coordinates = mock(Coordinates.class);
         service = mock(DocumenuService.class);
         controller = new DocumenuController(service);
         controller.lblEnterZip = mock(Label.class);
+        controller.lblCuisines = mock(Label.class);
         controller.lblError = mock(Label.class);
         controller.tfEnterZip = mock(TextField.class);
         controller.btnGo = mock(Button.class);
@@ -52,20 +54,24 @@ public class DocumenuControllerTest {
 
     } // done
 
+
     @Test
     public void invalid_searchLocation() {
         // given
         givenDocumenuController();
-        Coordinates coordinates = mock(Coordinates.class);
+        coordinates = mock(Coordinates.class);
+
         doReturn("07055").when(controller.tfEnterZip).getText();
-        doReturn(false).when(coordinates.checkForZip(controller.tfEnterZip.toString()));
-//        doReturn("Invalid ZipCode").when();
+        doReturn(false).when(coordinates.checkForZip(controller.tfEnterZip.getText()));
+
         // when
         controller.searchLocation();
 
         // then
-//        verify(controller.lblError).setText("Invalid ZipCode");
+        verify(controller.lblError).setText("Invalid ZipCode");
+        verify(controller, times(0)).getRestaurants();
     } // work on
+
 
     @Test
     public void valid_searchLocation() {
@@ -98,18 +104,6 @@ public class DocumenuControllerTest {
         verify(service).getByZipCode("40.857384", "-74.12899",
                 "5", "Italian", "5");
     } // done
-
-    @Test
-    public void callsRunLater_onDocumenuFeed() {
-        // given
-        givenDocumenuController();
-        DocumenuFeed documenuFeed = mock(DocumenuFeed.class);
-        // when
-        controller.onDocumenuFeed(documenuFeed);
-
-        // then
-//        verify(documenuFeed).
-    } // work on
 
     @Test
     public void labelsText_onDocumenuFeed() {

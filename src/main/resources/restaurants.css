@@ -1,3 +1,13 @@
-.Label{
-    fx-color: blue;
+.root{
+  -fx-background-color: #CAACA5
+}
+Label.names{
+
+-fx-font: bold 14pt "Roboto";
+-fx-fill: #73635F
+}
+
+Label.rInfo {
+-fx-font: 9pt "Roboto";
+-fx-text-alignment: center
 }

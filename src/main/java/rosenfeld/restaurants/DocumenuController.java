@@ -15,14 +15,13 @@ public class DocumenuController {
 
 
     @FXML
-    Label lblEnterZip, lblError;
+    Label lblEnterZip, lblError, lblCuisines;
     @FXML
     TextField tfEnterZip;
     @FXML
     Button btnGo;
     @FXML
     ComboBox<String> cbCuisines;
-
     @FXML
     ArrayList<Label> names, phones, websites, addresses;
 
@@ -38,6 +37,10 @@ public class DocumenuController {
         cbCuisines.getSelectionModel().select(0);
     }
 
+
+
+
+
     public void searchLocation() {
         if (!coordinates.checkForZip(tfEnterZip.getText())) {
             lblError.setText("Invalid ZipCode");
@@ -45,6 +48,7 @@ public class DocumenuController {
             getRestaurants();
         }
     }
+
 
     public void getRestaurants() {
         Disposable disposableFeed = service.getByZipCode(coordinates.getLat(tfEnterZip.getText()), coordinates.getLong(tfEnterZip.getText()),
