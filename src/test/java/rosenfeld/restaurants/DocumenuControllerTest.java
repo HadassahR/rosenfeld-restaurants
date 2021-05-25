@@ -60,6 +60,7 @@ public class DocumenuControllerTest {
         // given
         givenDocumenuController();
         coordinates = mock(Coordinates.class);
+        DocumenuController dController = mock(DocumenuController.class);
 
         doReturn("07055").when(controller.tfEnterZip).getText();
         doReturn(false).when(coordinates.checkForZip(controller.tfEnterZip.getText()));
@@ -69,7 +70,7 @@ public class DocumenuControllerTest {
 
         // then
         verify(controller.lblError).setText("Invalid ZipCode");
-        verify(controller, times(0)).getRestaurants();
+        verify(dController, times(0)).getRestaurants();
     } // work on
 
 
