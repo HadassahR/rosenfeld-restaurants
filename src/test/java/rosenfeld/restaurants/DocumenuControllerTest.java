@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
 
-public class DocumenuControllerTest{
+public class DocumenuControllerTest {
     private DocumenuController controller;
     DocumenuService service;
 
@@ -50,33 +50,90 @@ public class DocumenuControllerTest{
         // then
         verify(controller.cbCuisines.getSelectionModel());
 
-    }
+    } // done
+
+    @Test
+    public void invalid_searchLocation() {
+        // given
+        givenDocumenuController();
+        Coordinates coordinates = mock(Coordinates.class);
+        doReturn("07055").when(controller.tfEnterZip).getText();
+        doReturn(false).when(coordinates.checkForZip(controller.tfEnterZip.toString()));
+//        doReturn("Invalid ZipCode").when();
+        // when
+        controller.searchLocation();
+
+        // then
+//        verify(controller.lblError).setText("Invalid ZipCode");
+    } // work on
+
+    @Test
+    public void valid_searchLocation() {
+        // given
+        givenDocumenuController();
+        Coordinates coordinates = mock(Coordinates.class);
+        doReturn("07055").when(controller.tfEnterZip).getText();
+        doReturn(true).when(coordinates.checkForZip(controller.tfEnterZip.toString()));
+
+        // when
+        controller.searchLocation();
+
+        // then
+//        verify(controller.getRestaurants());
+    } // work on
 
     @Test
     public void getRestaurants() {
         // given
         givenDocumenuController();
-//        doReturn(Single.never()).when(service).getCurrentWeather("New York", "imperial");
-//        doReturn(Single.never()).when(service).getWeatherForecast("New York", "imperial");
-//        doReturn("New York").when(controller.enterLocation).getText();
-//        doReturn(true).when(controller.units.get(1)).isSelected();
+        doReturn(Single.never()).when(service).getByZipCode(controller.coordinates.getLat("07055"),
+                controller.coordinates.getLong("07055"), "5", "Italian", "5");
+        doReturn("07055").when(controller.tfEnterZip).getText();
+        doReturn("Italian").when(controller.cbCuisines).getValue();
 
         // when
         controller.getRestaurants();
 
         // then
-//        verify(service).getCurrentWeather("New York", "imperial");
-    }
+        verify(service).getByZipCode("40.857384", "-74.12899",
+                "5", "Italian", "5");
+    } // done
+
     @Test
-    public void searchLocation(){
+    public void callsRunLater_onDocumenuFeed() {
+        // given
+        givenDocumenuController();
+        DocumenuFeed documenuFeed = mock(DocumenuFeed.class);
+        // when
+        controller.onDocumenuFeed(documenuFeed);
+
+        // then
+//        verify(documenuFeed).
+    } // work on
+
+    @Test
+    public void labelsText_onDocumenuFeed() {
 //        // given
 //        givenDocumenuController();
-//        doReturn(true).when(controller.coordinates.checkForZip("07055"));
+//        DocumenuFeed feed = mock(DocumenuFeed.class);
+////        DocumenuFeed.Data data = mock(DocumenuFeed.Data.class);
+//        feed.data = mock(DocumenuFeed.Data.class);
+//        feed.data.get(1).restaurant_name = mock(String.class);
+////        feed.data.get(1).restaurant_name = "Romeo's Pizzeria Restaurant";
+////        feed.data.get(1).restaurant_phone = "(973) 777-1450";
+////        feed.data.get(1).restaurant_website = "http://www.romeosnj.com/";
+////        feed.data.get(1).address.formatted = "199 Main Ave PASSAIC, NJ 07055";
+//        doReturn(data).when(controller.names.get(1).getText());
+//        doReturn("Romeo's Pizzeria Restaurant").when(controller.names.get(1)).getText();
+//        controller.names.get(1).setText("Romeo's Pizzeria Restaurant");
 //
 //        // when
-//        controller.searchLocation();
+//        controller.onDocumenuFeed(feed);
 //
-//        // then
-//        verify(controller.coordinates.checkForZip("07055"));
-    }
+//        //then
+//        verify(controller.names.get(1)).setText(String.valueOf(feed.data.get(1).restaurant_name));
+
+    } // work on
 }
+
+
