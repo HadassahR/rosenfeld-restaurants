@@ -37,10 +37,6 @@ public class DocumenuController {
         cbCuisines.getSelectionModel().select(0);
     }
 
-
-
-
-
     public void searchLocation() {
         if (!coordinates.checkForZip(tfEnterZip.getText())) {
             lblError.setText("Invalid ZipCode");
@@ -48,7 +44,6 @@ public class DocumenuController {
             getRestaurants();
         }
     }
-
 
     public void getRestaurants() {
         Disposable disposableFeed = service.getByZipCode(coordinates.getLat(tfEnterZip.getText()), coordinates.getLong(tfEnterZip.getText()),
@@ -88,6 +83,7 @@ public class DocumenuController {
     }
 
     public void onError(Throwable throwable) {
+        lblError.setText("Error getting restaurants");
         throwable.printStackTrace();
     }
 }

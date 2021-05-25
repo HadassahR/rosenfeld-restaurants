@@ -59,7 +59,6 @@ public class DocumenuControllerTest {
         // given
         givenDocumenuController();
         Coordinates coordinates = mock(Coordinates.class);
-
         doReturn("11111").when(controller.tfEnterZip).getText();
         String zip = controller.tfEnterZip.getText();
         doReturn(false).when(coordinates).checkForZip(zip);
@@ -69,26 +68,11 @@ public class DocumenuControllerTest {
 
         // then
         verify(controller.lblError).setText("Invalid ZipCode");
+        verify(service, times(0)).getByZipCode(coordinates.getLat(zip), coordinates.getLong(zip),
+                "5", "Italian", "5");
 
     } // done
 
-    @Test
-    public void valid_searchLocation() {
-        // given
-        givenDocumenuController();
-        Coordinates coordinates = mock(Coordinates.class);
-
-        doReturn("07055").when(controller.tfEnterZip).getText();
-        String zip = controller.tfEnterZip.getText();
-        doReturn(true).when(coordinates).checkForZip(zip);
-
-        // when
-        controller.searchLocation();
-
-        // then
-        verify(controller.lblError).setText("Invalid ZipCode");
-//        verify(dc, times(1)).getRestaurants();
-    } // work on
 
     @Test
     public void getRestaurants() {
@@ -109,25 +93,25 @@ public class DocumenuControllerTest {
 
     @Test
     public void labelsText_onDocumenuFeed() {
-//        // given
-//        givenDocumenuController();
-//        DocumenuFeed feed = mock(DocumenuFeed.class);
-////        DocumenuFeed.Data data = mock(DocumenuFeed.Data.class);
-//        feed.data = mock(DocumenuFeed.Data.class);
-//        feed.data.get(1).restaurant_name = mock(String.class);
-////        feed.data.get(1).restaurant_name = "Romeo's Pizzeria Restaurant";
-////        feed.data.get(1).restaurant_phone = "(973) 777-1450";
-////        feed.data.get(1).restaurant_website = "http://www.romeosnj.com/";
-////        feed.data.get(1).address.formatted = "199 Main Ave PASSAIC, NJ 07055";
-//        doReturn(data).when(controller.names.get(1).getText());
-//        doReturn("Romeo's Pizzeria Restaurant").when(controller.names.get(1)).getText();
-//        controller.names.get(1).setText("Romeo's Pizzeria Restaurant");
-//
-//        // when
-//        controller.onDocumenuFeed(feed);
-//
-//        //then
-//        verify(controller.names.get(1)).setText(String.valueOf(feed.data.get(1).restaurant_name));
+        // given
+        givenDocumenuController();
+        DocumenuFeed feed = mock(DocumenuFeed.class);
+        DocumenuFeed.Data data = mock(DocumenuFeed.Data.class);
+
+        doReturn("07055").when(controller.tfEnterZip).getText();
+        doReturn("Italian").when(controller.cbCuisines).getValue();
+        doReturn(data).when(controller.names).get(1).getText();
+
+        feed.data.get(1).restaurant_name = "Romeo's Pizzeria Restaurant";
+
+        // when
+        controller.onDocumenuFeed(feed);
+
+        // then
+        verify(controller.names.get(1)).setText("Romeo's Pizzeria Restaurant");
+
+
+
 
     } // work on
 }
