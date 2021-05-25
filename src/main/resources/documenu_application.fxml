@@ -36,43 +36,43 @@
     <center>
         <GridPane alignment="CENTER" hgap="16" vgap="4">
 
-            <Label fx:id="name0" text="Restaurant" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <Label fx:id="name1" text="Restaurant" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            <Label fx:id="name2" text="Restaurant" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-            <Label fx:id="name3" text="Restaurant" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-            <Label fx:id="name4" text="Restaurant" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+            <Label fx:id="name0" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label fx:id="name1"  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label fx:id="name2"  GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <Label fx:id="name3" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            <Label fx:id="name4"  GridPane.columnIndex="4" GridPane.rowIndex="0"/>
 
-            <Label fx:id="phone0" text="123-456-7890" textAlignment="center" GridPane.columnIndex="0"
+            <Label fx:id="phone0" textAlignment="center" GridPane.columnIndex="0"
                    GridPane.rowIndex="1"/>
-            <Label fx:id="phone1" text="123-456-7890" textAlignment="center" GridPane.columnIndex="1"
+            <Label fx:id="phone1" textAlignment="center" GridPane.columnIndex="1"
                    GridPane.rowIndex="1"/>
-            <Label fx:id="phone2" text="123-456-7890" textAlignment="center" GridPane.columnIndex="2"
+            <Label fx:id="phone2" textAlignment="center" GridPane.columnIndex="2"
                    GridPane.rowIndex="1"/>
-            <Label fx:id="phone3" text="123-456-7890" textAlignment="center" GridPane.columnIndex="3"
+            <Label fx:id="phone3" textAlignment="center" GridPane.columnIndex="3"
                    GridPane.rowIndex="1"/>
-            <Label fx:id="phone4" text="123-456-7890" textAlignment="center" GridPane.columnIndex="4"
+            <Label fx:id="phone4"  textAlignment="center" GridPane.columnIndex="4"
                    GridPane.rowIndex="1"/>
 
-            <Label fx:id="website0" text="www.eat.com" textAlignment="center" GridPane.columnIndex="0"
+            <Label fx:id="website0" textAlignment="center" GridPane.columnIndex="0"
                    GridPane.rowIndex="2"/>
-            <Label fx:id="website1" text="www.eat.com" textAlignment="center" GridPane.columnIndex="1"
+            <Label fx:id="website1"  textAlignment="center" GridPane.columnIndex="1"
                    GridPane.rowIndex="2"/>
-            <Label fx:id="website2" text="www.eat.com" textAlignment="center" GridPane.columnIndex="2"
+            <Label fx:id="website2" textAlignment="center" GridPane.columnIndex="2"
                    GridPane.rowIndex="2"/>
-            <Label fx:id="website3" text="www.eat.com" textAlignment="center" GridPane.columnIndex="3"
+            <Label fx:id="website3" textAlignment="center" GridPane.columnIndex="3"
                    GridPane.rowIndex="2"/>
-            <Label fx:id="website4" text="www.eat.com" textAlignment="center" GridPane.columnIndex="4"
+            <Label fx:id="website4" textAlignment="center" GridPane.columnIndex="4"
                    GridPane.rowIndex="2"/>
 
-            <Label fx:id="address0" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="0"
+            <Label fx:id="address0"  textAlignment="center" GridPane.columnIndex="0"
                    GridPane.rowIndex="3"/>
-            <Label fx:id="address1" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="1"
+            <Label fx:id="address1"  textAlignment="center" GridPane.columnIndex="1"
                    GridPane.rowIndex="3"/>
-            <Label fx:id="address2" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="2"
+            <Label fx:id="address2"  textAlignment="center" GridPane.columnIndex="2"
                    GridPane.rowIndex="3"/>
-            <Label fx:id="address3" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="3"
+            <Label fx:id="address3"  textAlignment="center" GridPane.columnIndex="3"
                    GridPane.rowIndex="3"/>
-            <Label fx:id="address4" text="1 Eata Way, Brooklyn NY" textAlignment="center" GridPane.columnIndex="4"
+            <Label fx:id="address4" textAlignment="center" GridPane.columnIndex="4"
                    GridPane.rowIndex="3"/>
 
             <fx:define>
